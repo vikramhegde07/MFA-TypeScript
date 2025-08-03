@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
@@ -9,10 +9,21 @@ import { useTheme } from './context/ThemeContext'
 import Profile from './pages/Profile'
 import { Toaster } from 'react-hot-toast'
 import Authenticate from './components/MFA/Authenticate'
+import { useAuth } from './context/AuthContext'
+import { useEffect } from 'react'
 
 function App() {
   const { theme, toggleTheme } = useTheme();
 
+  const { token, user, isAuthenticated } = useAuth();
+  const navigator = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (!token || !user) navigator('/login')
+    }
+
+  }, [token, user, isAuthenticated])
   return (
     <>
       <Routes>

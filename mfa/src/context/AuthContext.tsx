@@ -11,6 +11,7 @@ type AuthProviderProps = {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [token, setToken] = useState<string | null>(null);
     const [user, setUser] = useState<User | null>(null);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
     const login = ({ token, user }: { token: string; user: User }) => {
         localStorage.setItem('userToken', token);
@@ -33,10 +34,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             setToken(storedToken);
             setUser(JSON.parse(storedUser));
         }
+
+        setIsAuthenticated(true);
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, token, logout, login }} >
+        <AuthContext.Provider value={{ user, token, logout, login, isAuthenticated }} >
             {children}
         </AuthContext.Provider>
     )
