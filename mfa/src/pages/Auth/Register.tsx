@@ -41,7 +41,11 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black transition-colors">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black transition-colors">
+            <p className="text-sm text-center text-muted-foreground mb-4">
+                <strong>Note:</strong> This is a demo application. All accounts and data created here will be automatically deleted after 24 hours. Please avoid using real credentials.
+            </p>
+
             <Card className="w-full max-w-md border border-gray-200 dark:border-zinc-800 shadow-md">
                 <CardContent className="p-6 space-y-5">
                     <h2 className="text-2xl font-semibold text-center text-zinc-800 dark:text-white">

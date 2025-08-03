@@ -14,7 +14,11 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-zinc-900 dark:to-black transition-colors">
+        <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-zinc-900 dark:to-black transition-colors">
+            <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
+                Welcome to the MFA Example App — a public demo to explore Multi-Factor Authentication. All user accounts and task data are temporary and will be deleted automatically after 24 hours.
+            </p>
+
             <Card className="w-full max-w-md border border-gray-200 dark:border-zinc-800 shadow-xl rounded-xl">
                 <CardContent className="p-6 space-y-6">
                     <h2 className="text-3xl font-bold text-center text-zinc-800 dark:text-white">
